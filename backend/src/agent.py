@@ -1,6 +1,8 @@
 import logging
 import json
-from typing import Annotated, List
+import os
+from datetime import datetime
+from typing import Annotated, List, Optional
 
 from dotenv import load_dotenv
 from livekit.agents import (
@@ -24,63 +26,98 @@ logger = logging.getLogger("agent")
 
 load_dotenv(".env.local")
 
-class Assistant(Agent):
-    def __init__(self) -> None:
-        super().__init__(
-            # DAY 2 TASK: Define the Persona
-            instructions="""You are a friendly and energetic barista at 'Code Brew Café'. 
-            Your goal is to take a coffee order from the customer.
-            
-            You MUST collect the following information to complete an order:
-            1. Drink Type (e.g., Latte, Cappuccino, Americano)
-            2. Size (Small, Medium, Large)
-            3. Milk Type (Whole, Oat, Almond, Soy)
-            4. Extras (e.g., Sugar, Syrup, or "None")
-            5. Customer Name
+LOG_FILE = "wellness_log.json"
 
-            Ask clarifying questions one by one or in small groups to fill these fields. 
-            Do not assume any values (except strictly implied ones). 
+def get_last_checkin_context():
+    """Reads the JSON log and returns a summary string of the last session."""
+    if not os.path.exists(LOG_FILE):
+        return "This is the user's first check-in. Welcome them warmly."
+    
+    try:
+        with open(LOG_FILE, "r") as f:
+            data = json.load(f)
+            if not data:
+                return "This is the user's first check-in. Welcome them warmly."
             
-            Once you have ALL the information, you MUST call the 'save_order' tool to submit the order.
-            After saving, thank the customer by name and tell them their order is coming right up.
+            # Get the last entry
+            last_entry = data[-1]
+            date_str = last_entry.get("timestamp", "Unknown date")
+            mood = last_entry.get("mood", "Unknown")
+            goals = ", ".join(last_entry.get("objectives", []))
             
-            Keep your responses conversational, short, and polite. 
-            Do not use emojis or special formatting.""",
+            return f"""
+            CONTEXT FROM PREVIOUS SESSION:
+            - Date: {date_str}
+            - User's Last Mood: {mood}
+            - User's Last Goals: {goals}
+            
+            Start the conversation by referencing this past info naturally (e.g., "Last time we spoke, you were feeling... how are things today?").
+            """
+    except Exception as e:
+        logger.error(f"Error reading history: {e}")
+        return "Could not retrieve past history due to an error."
+
+class WellnessCompanion(Agent):
+    def __init__(self, past_context: str) -> None:
+        super().__init__(
+            instructions=f"""You are a supportive, grounded Health & Wellness Voice Companion.
+            Your goal is to conduct a short daily check-in with the user.
+            
+            {past_context}
+
+            BEHAVIOR GUIDELINES:
+            1. **Check-In:** Ask about their mood and energy levels (e.g., "How is your energy today?").
+            2. **Objectives:** Ask for 1-3 simple, practical goals for the day (e.g., "What's one thing you want to get done?").
+            3. **Support:** Offer short, grounded advice (e.g., "Remember to take a 5-minute break").
+               - DO NOT give medical diagnoses or clinical advice. You are a companion, not a doctor.
+            4. **Recap & Save:** Once you have the mood, energy, and goals, summarize them back to the user to confirm.
+               - IF the user confirms, you MUST call the 'log_daily_checkin' tool to save the entry.
+            
+            Tone: Warm, encouraging, concise, and realistic. Avoid toxic positivity.
+            """
         )
 
-    # DAY 2 TASK: Create the Tool to capture state and save JSON
     @function_tool
-    async def save_order(
+    async def log_daily_checkin(
         self, 
         ctx: RunContext, 
-        drink_type: Annotated[str, "The type of coffee drink (e.g., Latte, Espresso)"],
-        size: Annotated[str, "The size of the drink (Small, Medium, Large)"],
-        milk: Annotated[str, "The type of milk preference"],
-        customer_name: Annotated[str, "The customer's name"],
-        extras: Annotated[List[str], "A list of any extras like sugar or flavors"]
+        mood: Annotated[str, "The user's self-reported mood"],
+        energy: Annotated[str, "The user's described energy level (e.g., High, Low, Tired)"],
+        objectives: Annotated[List[str], "A list of 1-3 goals the user mentioned for the day"],
+        summary: Annotated[str, "A brief one-sentence summary of the check-in"]
     ):
         """
-        Call this tool ONLY when you have collected all details for the customer's order.
+        Call this tool ONLY after the user has confirmed their check-in details (mood, goals, etc.).
         """
-        logger.info(f"Saving order for {customer_name}")
+        logger.info(f"Logging check-in: {mood}, {objectives}")
 
-        # Create the order object structure required by the task
-        order_data = {
-            "drinkType": drink_type,
-            "size": size,
-            "milk": milk,
-            "extras": extras,
-            "name": customer_name
+        new_entry = {
+            "timestamp": datetime.now().isoformat(),
+            "mood": mood,
+            "energy": energy,
+            "objectives": objectives,
+            "summary": summary
         }
 
-        # Save to JSON file
+        # Read existing data to append
+        history = []
+        if os.path.exists(LOG_FILE):
+            try:
+                with open(LOG_FILE, "r") as f:
+                    history = json.load(f)
+            except json.JSONDecodeError:
+                history = [] # Start fresh if corrupt
+
+        history.append(new_entry)
+
+        # Write back to file
         try:
-            with open("order.json", "w") as f:
-                json.dump(order_data, f, indent=2)
-            return "Order saved successfully! You can now confirm to the user."
+            with open(LOG_FILE, "w") as f:
+                json.dump(history, f, indent=2)
+            return "Check-in saved successfully! You can now wish the user a great day and say goodbye."
         except Exception as e:
-            logger.error(f"Failed to save order: {e}")
-            return "There was an error saving the order."
+            logger.error(f"Failed to save check-in: {e}")
+            return "There was an error saving the check-in."
 
 
 def prewarm(proc: JobProcess):
@@ -91,6 +128,9 @@ async def entrypoint(ctx: JobContext):
     ctx.log_context_fields = {
         "room": ctx.room.name,
     }
+
+    # Load history before the agent starts to inject it into the prompt
+    past_context_str = get_last_checkin_context()
 
     session = AgentSession(
         stt=deepgram.STT(model="nova-3"),
@@ -121,8 +161,11 @@ async def entrypoint(ctx: JobContext):
 
     ctx.add_shutdown_callback(log_usage)
 
+    # Initialize the agent with the history context
+    agent = WellnessCompanion(past_context=past_context_str)
+
     await session.start(
-        agent=Assistant(),
+        agent=agent,
         room=ctx.room,
         room_input_options=RoomInputOptions(
             noise_cancellation=noise_cancellation.BVC(),

@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2025-11-24T13:26:43.883318",
+    "mood": "a bit tired",
+    "energy": "energetic",
+    "objectives": [
+      "Finish your coding task"
+    ],
+    "summary": "Mood: A bit tired, Energy: Energetic, Goal: Finish your coding task."
+  },
+  {
+    "timestamp": "2025-11-24T20:24:51.415920",
+    "mood": "energetic",
+    "energy": "energetic",
+    "objectives": [
+      "stay hydrated"
+    ],
+    "summary": "User is feeling energetic and aims to stay hydrated today."
+  }
+]
