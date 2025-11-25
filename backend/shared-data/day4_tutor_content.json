@@ -1,0 +1,44 @@
+[
+  {
+    "id": "variables",
+    "title": "Variables",
+    "summary": "Variables store values so you can reuse them later. Think of a variable as a labeled box where you can put data like numbers, text, or other information. You give the variable a name, and then you can refer to that name whenever you need the value inside. For example, in Python, you might write 'age = 25' to store the number 25 in a variable called age. Variables make your code flexible because you can change the value without rewriting your entire program.",
+    "sample_question": "What is a variable and why is it useful?",
+    "teach_back_prompt": "Explain to me what a variable is in your own words. Pretend I've never programmed before and give me an example of how you would use a variable in real code."
+  },
+  {
+    "id": "loops",
+    "title": "Loops",
+    "summary": "Loops let you repeat an action multiple times without writing the same code over and over. There are two main types: for loops and while loops. A for loop repeats a specific number of times or goes through a collection of items one by one. For example, you might use a for loop to print numbers 1 through 10. A while loop keeps repeating as long as a certain condition is true. For instance, a while loop might keep asking for user input until they type 'quit'. Loops save time and make your code more efficient.",
+    "sample_question": "Explain the difference between a for loop and a while loop.",
+    "teach_back_prompt": "Teach me about loops like I'm a beginner. Explain what they do and describe the difference between a for loop and a while loop. Give me a simple example of when you'd use each one."
+  },
+  {
+    "id": "functions",
+    "title": "Functions",
+    "summary": "Functions are reusable blocks of code that perform a specific task. Instead of writing the same code multiple times, you create a function once and call it whenever you need it. Functions can take inputs called parameters and return outputs. For example, you might create a function called 'calculate_total' that adds up numbers and returns the sum. Functions make your code organized, easier to test, and help you avoid repeating yourself.",
+    "sample_question": "What is a function and why should you use them?",
+    "teach_back_prompt": "Explain functions to me like I'm new to programming. Tell me what they are, why they're useful, and give me a simple example of when you'd create a function."
+  },
+  {
+    "id": "conditionals",
+    "title": "Conditionals",
+    "summary": "Conditionals let your program make decisions based on certain conditions. The most common conditional is the if statement, which checks if something is true before executing code. You can also use else to handle what happens when the condition is false, and elif for checking multiple conditions. For example, 'if temperature > 30: print(hot)' checks the temperature and responds accordingly. Conditionals make your programs smart and responsive to different situations.",
+    "sample_question": "How do if statements work and when would you use them?",
+    "teach_back_prompt": "Teach me about conditionals and if statements. Explain how they help programs make decisions and give me an example of a situation where you'd use an if statement."
+  },
+  {
+    "id": "data_types",
+    "title": "Data Types",
+    "summary": "Data types define what kind of value a variable can hold. Common data types include integers (whole numbers like 5), floats (decimal numbers like 3.14), strings (text like 'hello'), and booleans (True or False). Different data types support different operations - you can do math with numbers but not with strings. Understanding data types helps you choose the right type for your data and avoid errors in your code.",
+    "sample_question": "What are the main data types in programming and why do they matter?",
+    "teach_back_prompt": "Explain data types to me as if I'm just starting to code. What are they, what are some common examples, and why is it important to know about different data types?"
+  },
+  {
+    "id": "lists",
+    "title": "Lists and Arrays",
+    "summary": "Lists (or arrays) are collections that store multiple values in a single variable. Instead of creating separate variables for each item, you can store them all in one list. For example, 'fruits = [apple, banana, orange]' stores three fruits in one variable. You can access items by their position (index), add new items, remove items, and loop through all items. Lists are perfect for managing groups of related data.",
+    "sample_question": "What is a list and how do you use it to store multiple values?",
+    "teach_back_prompt": "Teach me about lists like I'm a beginner. What are they, how do you create them, and give me an example of when using a list would be better than using separate variables."
+  }
+]
