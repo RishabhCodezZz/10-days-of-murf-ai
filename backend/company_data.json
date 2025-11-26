@@ -1,0 +1,27 @@
+{
+  "company_info": {
+    "name": "The Health Factory",
+    "mission": "Bread Badlo Aadat Nahi (Change the bread, not the habit). To provide bread in its truest form—wholesome, nutritious, and free from preservatives.",
+    "locations": ["Mumbai", "Pune", "Delhi NCR", "Bangalore"],
+    "delivery_policy": "Mumbai/Pune: Orders before 6 PM get free next-day delivery. Others delivered day after tomorrow. No Sunday delivery.",
+    "subscription_offer": "Up to 30% off on 52-week subscriptions. Options: 2 weeks to 52 weeks."
+  },
+  "faq_content": [
+    {
+      "question": "What makes your bread different?",
+      "answer": "Our bread is 'Zero Maida,' meaning 0% refined flour. We use 100% whole wheat or multigrain. No chemical preservatives, emulsifiers, or added colors."
+    },
+    {
+      "question": "Is the protein bread vegetarian?",
+      "answer": "Yes, Multi-Protein Bread (whey & milk) is vegetarian. We also have a Vegan Protein Bread which is 100% plant-based."
+    },
+    {
+      "question": "What is the shelf life?",
+      "answer": "Because we use no preservatives, shelf life is shorter (3-4 days). Keep refrigerated to extend freshness."
+    },
+    {
+      "question": "Where do you deliver?",
+      "answer": "We currently deliver in Mumbai, Pune, Delhi NCR, and Bangalore."
+    }
+  ]
+}

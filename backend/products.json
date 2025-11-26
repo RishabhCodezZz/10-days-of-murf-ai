@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Zero Maida Bread - 100% Whole Wheat",
+    "weight": "250g",
+    "price": "₹55",
+    "description": "The best thing since sliced bread. No refined flour, just 100% whole wheat goodness. Zero Maida, No Preservatives."
+  },
+  {
+    "name": "Zero Maida Bread - 100% Whole Wheat (Large)",
+    "weight": "350g",
+    "price": "₹65",
+    "description": "Larger loaf of our classic zero maida whole wheat bread."
+  },
+  {
+    "name": "Zero Maida Multigrain Bread",
+    "weight": "250g",
+    "price": "₹70",
+    "description": "Zero maida with the goodness of multiple grains for added fiber and nutrition."
+  },
+  {
+    "name": "Multi Protein Bread",
+    "weight": "250g",
+    "price": "₹155",
+    "description": "India's first high-protein bread. Contains whey, soy, and pea protein. 10.4g protein per 2 slices. 300% more protein than regular bread."
+  },
+  {
+    "name": "Vegan Protein Bread",
+    "weight": "250g",
+    "price": "₹105",
+    "description": "100% Plant-based high protein bread. Light on fluff, heavy on health."
+  },
+  {
+    "name": "Zero Maida Bombay Pav",
+    "weight": "Pack of 2",
+    "price": "₹80",
+    "description": "Your favorite pav, but healthy. Zero maida, no preservatives."
+  },
+  {
+    "name": "Zero Maida Burger Bun",
+    "weight": "Pack of 2",
+    "price": "₹70",
+    "description": "Guilt-free burger buns made without refined flour."
+  }
+]
