@@ -1,44 +1,37 @@
 [
   {
-    "name": "Zero Maida Bread - 100% Whole Wheat",
-    "weight": "250g",
+    "id": "zero-maida-whole-wheat",
+    "name": "Zero Maida Whole Wheat Bread",
     "price": "₹55",
-    "description": "The best thing since sliced bread. No refined flour, just 100% whole wheat goodness. Zero Maida, No Preservatives."
-  },
-  {
-    "name": "Zero Maida Bread - 100% Whole Wheat (Large)",
-    "weight": "350g",
-    "price": "₹65",
-    "description": "Larger loaf of our classic zero maida whole wheat bread."
-  },
-  {
-    "name": "Zero Maida Multigrain Bread",
     "weight": "250g",
-    "price": "₹70",
-    "description": "Zero maida with the goodness of multiple grains for added fiber and nutrition."
+    "features": ["100% Whole Wheat", "No Maida", "High Fibre"]
   },
   {
-    "name": "Multi Protein Bread",
-    "weight": "250g",
+    "id": "protein-bread",
+    "name": "Multi-Protein Bread",
     "price": "₹155",
-    "description": "India's first high-protein bread. Contains whey, soy, and pea protein. 10.4g protein per 2 slices. 300% more protein than regular bread."
-  },
-  {
-    "name": "Vegan Protein Bread",
     "weight": "250g",
+    "features": ["High Protein", "Low Carb", "Contains Whey & Pea Protein"]
+  },
+  {
+    "id": "vegan-protein",
+    "name": "Vegan Protein Bread",
     "price": "₹105",
-    "description": "100% Plant-based high protein bread. Light on fluff, heavy on health."
+    "weight": "250g",
+    "features": ["Plant-based Protein", "Dairy Free", "Zero Maida"]
   },
   {
-    "name": "Zero Maida Bombay Pav",
-    "weight": "Pack of 2",
-    "price": "₹80",
-    "description": "Your favorite pav, but healthy. Zero maida, no preservatives."
-  },
-  {
-    "name": "Zero Maida Burger Bun",
-    "weight": "Pack of 2",
+    "id": "zero-maida-multigrain",
+    "name": "Zero Maida Multigrain Bread",
     "price": "₹70",
-    "description": "Guilt-free burger buns made without refined flour."
+    "weight": "250g",
+    "features": ["7 Grains", "No Preservatives", "Rich in Fibre"]
+  },
+  {
+    "id": "bombay-pav",
+    "name": "Zero Maida Bombay Pav",
+    "price": "₹40",
+    "weight": "156g",
+    "features": ["Perfect for Pav Bhaji", "Soft Texture", "No Maida"]
   }
 ]
