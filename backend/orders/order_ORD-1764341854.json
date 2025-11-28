@@ -1,0 +1,20 @@
+{
+  "order_id": "ORD-1764341854",
+  "timestamp": "2025-11-28T20:27:34.166736",
+  "items": [
+    {
+      "id": "groc-002",
+      "name": "Organic Milk",
+      "category": "Groceries",
+      "price": 4.2,
+      "unit": "carton",
+      "tags": [
+        "dairy",
+        "beverage"
+      ],
+      "quantity": 2
+    }
+  ],
+  "total_amount": 8.4,
+  "status": "placed"
+}

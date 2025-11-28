@@ -1,0 +1,114 @@
+[
+  {
+    "id": "groc-001",
+    "name": "Whole Wheat Bread",
+    "category": "Groceries",
+    "price": 3.50,
+    "unit": "loaf",
+    "tags": ["vegan", "sandwich-base"]
+  },
+  {
+    "id": "groc-002",
+    "name": "Organic Milk",
+    "category": "Groceries",
+    "price": 4.20,
+    "unit": "carton",
+    "tags": ["dairy", "beverage"]
+  },
+  {
+    "id": "groc-003",
+    "name": "Free-Range Eggs",
+    "category": "Groceries",
+    "price": 5.00,
+    "unit": "dozen",
+    "tags": ["protein", "breakfast"]
+  },
+  {
+    "id": "groc-004",
+    "name": "Cheddar Cheese",
+    "category": "Groceries",
+    "price": 6.50,
+    "unit": "block",
+    "tags": ["dairy", "sandwich-filling"]
+  },
+  {
+    "id": "groc-005",
+    "name": "Peanut Butter",
+    "category": "Groceries",
+    "price": 4.00,
+    "unit": "jar",
+    "tags": ["pantry", "sandwich-filling"]
+  },
+  {
+    "id": "groc-006",
+    "name": "Strawberry Jam",
+    "category": "Groceries",
+    "price": 3.75,
+    "unit": "jar",
+    "tags": ["pantry", "sandwich-filling"]
+  },
+  {
+    "id": "groc-007",
+    "name": "Spaghetti Pasta",
+    "category": "Groceries",
+    "price": 2.00,
+    "unit": "box",
+    "tags": ["pantry", "pasta-base"]
+  },
+  {
+    "id": "groc-008",
+    "name": "Tomato Basil Sauce",
+    "category": "Groceries",
+    "price": 4.50,
+    "unit": "jar",
+    "tags": ["pantry", "pasta-sauce"]
+  },
+  {
+    "id": "snack-001",
+    "name": "Sea Salt Potato Chips",
+    "category": "Snacks",
+    "price": 3.00,
+    "unit": "bag",
+    "tags": ["salty"]
+  },
+  {
+    "id": "snack-002",
+    "name": "Dark Chocolate Bar",
+    "category": "Snacks",
+    "price": 2.50,
+    "unit": "bar",
+    "tags": ["sweet"]
+  },
+  {
+    "id": "snack-003",
+    "name": "Almonds",
+    "category": "Snacks",
+    "price": 8.00,
+    "unit": "pack",
+    "tags": ["healthy", "nuts"]
+  },
+  {
+    "id": "prep-001",
+    "name": "Margherita Pizza",
+    "category": "Prepared Food",
+    "price": 12.00,
+    "unit": "pie",
+    "tags": ["frozen", "dinner"]
+  },
+  {
+    "id": "prep-002",
+    "name": "Caesar Salad Bowl",
+    "category": "Prepared Food",
+    "price": 9.00,
+    "unit": "bowl",
+    "tags": ["fresh", "lunch"]
+  },
+  {
+    "id": "prep-003",
+    "name": "Vegetable Samosas",
+    "category": "Prepared Food",
+    "price": 6.00,
+    "unit": "pack of 6",
+    "tags": ["appetizer", "spicy"]
+  }
+]
